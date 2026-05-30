@@ -96,6 +96,68 @@ footer span { font-family: 'Cinzel Decorative', serif; color: #38d8f5; opacity: 
 .lightbox-close:hover { opacity: 1; }
 
 /* ══════════════════════════════════════════════
+   PROLOGUE
+   ══════════════════════════════════════════════ */
+
+.prologue-section {
+  position: relative; z-index: 1;
+  padding: 5rem 1.5rem;
+  background: linear-gradient(180deg, transparent, rgba(10,20,50,.5), transparent);
+  border-bottom: 1px solid rgba(56,216,245,.08);
+}
+
+.prologue-inner {
+  max-width: 760px; margin: 0 auto; text-align: center;
+}
+
+.prologue-label {
+  font-size: .75rem; letter-spacing: .4em; text-transform: uppercase;
+  color: #38d8f5; margin-bottom: .8rem; opacity: .8;
+}
+
+.prologue-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  background: linear-gradient(135deg, #fff, #38d8f5);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(56,216,245,.3));
+  margin-bottom: 2.5rem;
+}
+
+.prologue-text {
+  text-align: left;
+  background: #0b1630;
+  border: 1px solid rgba(56,216,245,.15);
+  border-radius: 20px;
+  padding: 2.5rem 3rem;
+  position: relative;
+}
+
+/* decorative quote mark */
+.prologue-text::before {
+  content: '\201C';
+  position: absolute; top: -1.2rem; left: 2rem;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 4rem; line-height: 1;
+  color: #38d8f5; opacity: .25;
+  pointer-events: none;
+}
+
+.prologue-text p {
+  color: var(--soft);
+  font-size: 1rem; line-height: 1.9;
+  margin-bottom: 1.1rem;
+}
+.prologue-text p:last-child { margin-bottom: 0; }
+
+.prologue-text em { color: var(--white); font-style: italic; }
+.prologue-text strong { color: #38d8f5; font-weight: 700; }
+
+@media (max-width: 600px) {
+  .prologue-text { padding: 1.5rem; }
+}
+
+/* ══════════════════════════════════════════════
    INDEX PAGE — Preview Cards
    ══════════════════════════════════════════════ */
 
