@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amber · Magic Shadows</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<div class="stars"></div>
+
+<nav>
+  <a href="index.html" class="nav-home">← Magic Shadows</a>
+  <a href="moon.html"   class="nav-link">Moon</a>
+  <a href="stella.html" class="nav-link">Stella</a>
+  <a href="lucky.html"  class="nav-link">Lucky</a>
+  <a href="autumn.html" class="nav-link">Autumn</a>
+  <a href="amber.html"  class="nav-link active">Amber</a>
+</nav>
+
+<main>
+  <character-card
+    index="05"
+    name="Amber"
+    creature="Half Elf"
+    age="16"
+    skill="Born with powers — truth seeking, very powerful"
+    powers="Teleportation,Realm Travel,Magic,White Animal Transformation"
+    equipment="Staff"
+    gem="Lavender Jadeite"
+    elven-status="Former Princess of the Half Elves — kingdom destroyed, status lost"
+    flaw="Doesn't know how to use her powers very well yet 💜"
+    story="Amber isn't easy to warm up to — at first. She's guarded, a little rude, and deeply unsure of the people around her. But get past the walls she's built and you'll find someone genuinely kind underneath. She was once a princess of the half elves, but her kingdom was destroyed, and with it her title and everything she knew. Now she finds herself surrounded by people she doesn't fully trust yet, carrying powers she hasn't mastered, trying to figure out who she even is anymore. She's not unfriendly on purpose — she's just been through a lot. Give her time. 💜"
+    cover="images/amber-battle.png"
+    accent="#c084f5"
+  >
+    <char-form section="⚔️ Battle Style"   label="Battle Style"    src="images/amber-battle.png"></char-form>
+    <char-form section="🔮 Using Magic"    label="Using Magic"     src="images/amber-magic.png"></char-form>
+    <char-form section="🦊 Fox Form"       label="Fox Form"        src="images/amber-fox-1.png"></char-form>
+    <char-form section="🦊 Fox Form"       label="Fox Form ✦"      src="images/amber-fox-2.png"></char-form>
+    <char-form section="🌟 Special Form"   label="Special Form"    src="images/amber-special.png"></char-form>
+    <char-form section="🌙 Human Form"     label="Human Form"      src="images/amber-human.jpg"></char-form>
+    <char-form section="🐺 Wolf Form"      label="Wolf Form"       src="images/amber-wolf.jpg"></char-form>
+    <char-form section="⚡ Five Years Old" label="Little Amber"    src="images/amber-child.png"></char-form>
+  </character-card>
+</main>
+
+<footer>
+  <span>Magic Shadows</span> &nbsp;·&nbsp; a world of elves &amp; moonstone magic ✦
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
+<script src="js/character-card.js"></script>
+</body>
+</html>
