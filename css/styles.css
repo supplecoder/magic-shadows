@@ -382,6 +382,88 @@ footer span { font-family: 'Cinzel Decorative', serif; color: #38d8f5; opacity: 
 }
 
 /* ══════════════════════════════════════════════
+   LOCATIONS — location-card component + page
+   ══════════════════════════════════════════════ */
+
+.locations-section {
+  position: relative; z-index: 1;
+  padding: 5rem 1.5rem;
+  border-top: 1px solid rgba(56,216,245,.08);
+}
+
+.locations-inner { max-width: 1100px; margin: 0 auto; }
+
+.locations-heading {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  background: linear-gradient(135deg, #fff, #38d8f5);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(56,216,245,.3));
+  margin-bottom: .6rem;
+}
+
+.locations-subheading {
+  font-size: .75rem; letter-spacing: .4em; text-transform: uppercase;
+  color: #38d8f5; margin-bottom: 2.5rem; opacity: .8;
+}
+
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.location-card {
+  background: var(--card);
+  border-radius: 18px; overflow: hidden;
+  border: 1px solid rgba(56,216,245,.12);
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+.location-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--loc-accent, #38d8f5);
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--loc-accent, #38d8f5) 20%, transparent);
+}
+
+.location-card-img {
+  position: relative; aspect-ratio: 16/10; overflow: hidden; cursor: pointer;
+}
+.location-card-img img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .5s ease;
+}
+.location-card:hover .location-card-img img { transform: scale(1.06); }
+
+.loc-img-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: .5rem;
+  background: rgba(11,22,48,.9); color: rgba(255,255,255,.2);
+  font-size: .8rem; letter-spacing: .1em;
+}
+.loc-img-placeholder span { font-size: 2rem; opacity: .3; }
+
+.location-card-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(5,11,26,.85) 100%);
+  pointer-events: none;
+}
+
+.location-card-name {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1rem; padding: .8rem 1rem;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,.8));
+  z-index: 1;
+}
+
+.location-card-desc {
+  padding: .9rem 1.1rem;
+  font-size: .88rem; line-height: 1.65; color: var(--soft);
+}
+.location-card-desc.missing { color: rgba(255,255,255,.25); font-style: italic; }
+
+/* ══════════════════════════════════════════════
    DETAIL PAGES — Character Card
    ══════════════════════════════════════════════ */
 

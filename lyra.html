@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <title>Lyra · Magic Shadows</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<div class="stars"></div>
+
+<nav>
+  <a href="index.html" class="nav-home">← Magic Shadows</a>
+  <a href="moon.html"    class="nav-link">Moon</a>
+  <a href="stella.html"  class="nav-link">Stella</a>
+  <a href="lucky.html"   class="nav-link">Lucky</a>
+  <a href="autumn.html"  class="nav-link">Autumn</a>
+  <a href="amber.html"   class="nav-link">Amber</a>
+  <a href="jade.html"    class="nav-link">Jade</a>
+  <a href="lyra.html"    class="nav-link active">Lyra</a>
+  <a href="locations.html" class="nav-link">Locations</a>
+</nav>
+
+<main>
+  <character-card
+    index="villain"
+    name="Lyra"
+    creature="Half Elf, Half Bat"
+    age="18"
+    skill="Dark magic — inherited and amplified"
+    powers="Dark Magic"
+    equipment="Evil army, Onyx Amulet"
+    gem="Onyx"
+    elven-status="None — daughter of the half-elf who betrayed the kingdom"
+    flaw="Obsessed with herself, consumed by envy and vanity — her greatest enemy is her own pride"
+    story="Lyra is the daughter of the half-elf who once betrayed the elven kingdom — and she inherited every bit of her parent's hatred, then made it her own. She is wicked, cunning, and utterly consumed by revenge against all elves and humans alike. The dark magic she has wielded for so long has begun to change her physically, twisting her human side until it became something closer to a bat. She is vain, envious, and ruthless — caring only for what benefits herself. An amulet hangs around her neck at all times, its power unknown even to those closest to her. She has been growing bolder, her attacks more frequent. Whether our heroes can stop her before it's too late… that's the real question. 🖤"
+    cover="images/lyra/lyra-normal.png"
+    accent="#9b1fd4"
+  >
+    <char-form section="⚔️ Battle Form"   label="Battle Form"    src="images/lyra/lyra-battle.png"></char-form>
+    <char-form section="🦊 Fox Form"      label="Fox Form"       src="images/lyra/lyra-fox.png"></char-form>
+    <char-form section="🌑 Special Form"  label="Special Form"   src="images/lyra/lyra-special.png"></char-form>
+    <char-form section="🦇 Cat Form"      label="Cat Form"       src="images/lyra/lyra-cat-1.png"></char-form>
+    <char-form section="🦇 Cat Form"      label="Cat Form ✦"     src="images/lyra/lyra-cat-2.png"></char-form>
+  </character-card>
+</main>
+
+<footer>
+  <span>Magic Shadows</span> &nbsp;·&nbsp; a world of elves &amp; moonstone magic ✦
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
+<script src="js/character-card.js"></script>
+</body>
+</html>

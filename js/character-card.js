@@ -133,6 +133,42 @@ class CharacterCard extends HTMLElement {
 }
 customElements.define('character-card', CharacterCard);
 
+/* ─── <location-card> — a single location entry ───
+ *
+ * Attributes:
+ *   name        – location name
+ *   img         – image path
+ *   description – paragraph describing the location
+ *   accent      – optional CSS hex color (default: #38d8f5)
+ */
+class LocationCard extends HTMLElement {
+  connectedCallback() {
+    const name  = this.getAttribute('name')        || 'Unknown Location';
+    const img   = this.getAttribute('img')         || '';
+    const desc  = this.getAttribute('description') || '';
+    const accent = this.getAttribute('accent')     || '#38d8f5';
+
+    const imgHtml = img
+      ? `<img src="${img}" alt="${name}" loading="lazy" onclick="openLightbox('${img}')" />`
+      : `<div class="loc-img-placeholder"><span>✦</span>Art coming soon</div>`;
+
+    const html = `
+      <div class="location-card" style="--loc-accent:${accent}">
+        <div class="location-card-img" style="border-color:${accent}33">
+          ${imgHtml}
+          <div class="location-card-overlay"></div>
+          <h3 class="location-card-name" style="color:${accent}">${name}</h3>
+        </div>
+        ${desc ? `<p class="location-card-desc">${desc}</p>` : `<p class="location-card-desc missing">Description coming soon…</p>`}
+      </div>`;
+
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = html;
+    this.replaceWith(wrapper.firstElementChild);
+  }
+}
+customElements.define('location-card', LocationCard);
+
 /* ─── Lightbox ─── */
 window.openLightbox = function(src) {
   document.getElementById('lightbox-img').src = src;

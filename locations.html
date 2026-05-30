@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <title>Locations · Magic Shadows</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<div class="stars"></div>
+
+<nav>
+  <a href="index.html" class="nav-home">← Magic Shadows</a>
+  <a href="moon.html"      class="nav-link">Moon</a>
+  <a href="stella.html"    class="nav-link">Stella</a>
+  <a href="lucky.html"     class="nav-link">Lucky</a>
+  <a href="autumn.html"    class="nav-link">Autumn</a>
+  <a href="amber.html"     class="nav-link">Amber</a>
+  <a href="jade.html"      class="nav-link">Jade</a>
+  <a href="lyra.html"      class="nav-link">Lyra</a>
+  <a href="locations.html" class="nav-link active">Locations</a>
+</nav>
+
+<main>
+  <div class="locations-section">
+    <div class="locations-inner">
+      <p class="locations-subheading">✦ The World ✦</p>
+      <h2 class="locations-heading">Locations</h2>
+
+      <div class="locations-grid">
+
+        <location-card
+          name="The Elven Castle"
+          img="images/locations/elven-castle.png"
+          description="The ancient seat of elven royalty — grand, luminous, and surrounded by crystal spires that catch the light of every moon. Home to the Queen and Moon, and the heart of elven power."
+          accent="#38d8f5"
+        ></location-card>
+
+        <location-card
+          name="The Throne Room"
+          img="images/locations/throne-room.png"
+          description="Where the Queen holds court and the fate of the realm is decided. Few are granted an audience here — and fewer still leave unchanged."
+          accent="#c9a84c"
+        ></location-card>
+
+        <location-card
+          name="The Training Room"
+          img="images/locations/training-room.png"
+          description="Where the heroes sharpen their powers, test their limits, and prepare for what's coming. Equal parts gruelling and exhilarating."
+          accent="#4cbe8a"
+        ></location-card>
+
+        <location-card
+          name="Stella &amp; Lucky's House"
+          img="images/locations/stella-lucky-house.png"
+          description="The home the storm-born twins grew up in — ordinary on the outside, full of warmth and chaos on the inside. The place where their adventure really began."
+          accent="#e8634f"
+        ></location-card>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span>Magic Shadows</span> &nbsp;·&nbsp; a world of elves &amp; moonstone magic ✦
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
+<script src="js/character-card.js"></script>
+</body>
+</html>
