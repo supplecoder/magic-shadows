@@ -14,7 +14,10 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--navy);
+  background:
+    radial-gradient(ellipse at 20% 15%, color-mix(in srgb, var(--page-accent, #38d8f5) 7%, transparent) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 75%, color-mix(in srgb, var(--page-accent, #38d8f5) 5%, transparent) 0%, transparent 50%),
+    var(--navy);
   color: var(--white);
   font-family: 'Nunito', sans-serif;
   overflow-x: hidden;
