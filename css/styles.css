@@ -46,14 +46,21 @@ nav {
   position: sticky; top: 0; z-index: 100;
   background: rgba(5,11,26,.85); backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(56,216,245,.15);
-  display: flex; justify-content: center; align-items: center;
-  gap: 1rem; padding: .75rem 1.5rem; flex-wrap: wrap;
+  display: flex; align-items: center;
+  gap: 1rem; padding: .75rem 1.5rem;
+  /* Scroll horizontally on mobile, no wrapping */
+  overflow-x: auto; flex-wrap: nowrap;
+  /* Hide scrollbar across browsers */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+nav::-webkit-scrollbar { display: none; }
 
 .nav-home {
   font-family: 'Cinzel Decorative', serif;
   font-size: .8rem; color: #38d8f5; text-decoration: none;
   letter-spacing: .1em; margin-right: auto;
+  flex-shrink: 0; /* never squish the home link */
   transition: opacity .2s;
 }
 .nav-home:hover { opacity: .7; }
@@ -63,6 +70,8 @@ nav a.nav-link {
   font-size: .7rem; color: var(--soft); text-decoration: none;
   letter-spacing: .1em; padding: .4rem .8rem; border-radius: 20px;
   border: 1px solid transparent; transition: all .2s;
+  flex-shrink: 0; /* keep links full size, let nav scroll instead */
+  white-space: nowrap;
 }
 nav a.nav-link:hover, nav a.nav-link.active {
   color: #38d8f5; border-color: rgba(56,216,245,.4);
