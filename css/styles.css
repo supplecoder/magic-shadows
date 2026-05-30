@@ -15,8 +15,9 @@ html { scroll-behavior: smooth; }
 
 body {
   background:
-    radial-gradient(ellipse at 20% 15%, color-mix(in srgb, var(--page-accent, #38d8f5) 7%, transparent) 0%, transparent 55%),
-    radial-gradient(ellipse at 80% 75%, color-mix(in srgb, var(--page-accent, #38d8f5) 5%, transparent) 0%, transparent 50%),
+    radial-gradient(ellipse at 10%  10%, color-mix(in srgb, var(--page-accent, #38d8f5) 28%, transparent) 0%, transparent 50%),
+    radial-gradient(ellipse at 90%  85%, color-mix(in srgb, var(--page-accent, #38d8f5) 22%, transparent) 0%, transparent 50%),
+    radial-gradient(ellipse at 55%  45%, color-mix(in srgb, var(--page-accent, #38d8f5) 10%, transparent) 0%, transparent 65%),
     var(--navy);
   color: var(--white);
   font-family: 'Nunito', sans-serif;
