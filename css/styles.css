@@ -15,10 +15,10 @@ html { scroll-behavior: smooth; }
 
 body {
   background:
-    radial-gradient(ellipse at 10%  10%, color-mix(in srgb, var(--page-accent, #38d8f5) 28%, transparent) 0%, transparent 50%),
+    radial-gradient(ellipse at 10%  10%, color-mix(in srgb, var(--page-accent, #38d8f5) 30%, transparent) 0%, transparent 50%),
     radial-gradient(ellipse at 90%  85%, color-mix(in srgb, var(--page-accent, #38d8f5) 22%, transparent) 0%, transparent 50%),
-    radial-gradient(ellipse at 55%  45%, color-mix(in srgb, var(--page-accent, #38d8f5) 10%, transparent) 0%, transparent 65%),
-    var(--navy);
+    radial-gradient(ellipse at 55%  45%, color-mix(in srgb, var(--page-accent, #38d8f5) 12%, transparent) 0%, transparent 65%),
+    var(--page-bg, var(--navy));
   color: var(--white);
   font-family: 'Nunito', sans-serif;
   overflow-x: hidden;
