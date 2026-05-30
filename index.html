@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magic Shadows ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #050b1a;
+      --deep: #080f22;
+      --card: #0b1630;
+      --card2: #0e1c3a;
+      --cyan: #38d8f5;
+      --blue: #4fa8e8;
+      --glow: #00c8ff;
+      --soft: #a8d8f0;
+      --white: #eaf6ff;
+      --gold: #c9a84c;
+      --purple: #7b5ea7;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Nunito', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ── Stars ── */
+    .stars {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,.8) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 60%, rgba(255,255,255,.6) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 40% 30%, rgba(56,216,245,.9) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 80%, rgba(255,255,255,.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 20%, rgba(255,255,255,.5) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 80% 55%, rgba(56,216,245,.8) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,.9) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 90%, rgba(255,255,255,.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 45%, rgba(255,255,255,.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 33% 75%, rgba(56,216,245,.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 88% 85%, rgba(255,255,255,.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 5% 50%, rgba(255,255,255,.8) 0%, transparent 100%),
+        radial-gradient(1px 1px at 75% 70%, rgba(255,255,255,.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 48% 10%, rgba(255,255,255,.7) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 92% 40%, rgba(56,216,245,.6) 0%, transparent 100%);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      background: radial-gradient(ellipse at 50% 0%, rgba(0,200,255,.12) 0%, transparent 60%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    }
+
+    .hero-sparkle {
+      font-size: 1.1rem; letter-spacing: .3em;
+      text-transform: uppercase; color: var(--cyan);
+      margin-bottom: 1rem; opacity: .8;
+    }
+
+    .hero h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(2.5rem, 8vw, 5.5rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #fff 0%, var(--cyan) 50%, var(--blue) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      filter: drop-shadow(0 0 30px rgba(56,216,245,.5));
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--soft); max-width: 560px;
+      line-height: 1.7; margin-bottom: 2.5rem;
+    }
+
+    .hero-gem {
+      display: inline-block;
+      width: 60px; height: 60px; margin-bottom: 1.5rem;
+      background: radial-gradient(circle at 35% 35%, #fff, var(--cyan) 50%, #1a4a8a);
+      clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+      filter: drop-shadow(0 0 20px var(--cyan));
+      animation: gemPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes gemPulse {
+      0%, 100% { filter: drop-shadow(0 0 20px var(--cyan)); transform: scale(1); }
+      50% { filter: drop-shadow(0 0 40px var(--glow)); transform: scale(1.08); }
+    }
+
+    .scroll-hint {
+      position: absolute; bottom: 2rem;
+      display: flex; flex-direction: column; align-items: center; gap: .4rem;
+      font-size: .8rem; color: var(--soft); opacity: .6; letter-spacing: .15em;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .scroll-hint::after {
+      content: '▼'; font-size: 1.2rem; color: var(--cyan);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(5,11,26,.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(56,216,245,.15);
+      display: flex; justify-content: center; gap: 1rem;
+      padding: .75rem 1rem; flex-wrap: wrap;
+    }
+
+    nav a {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: .75rem; font-weight: 400;
+      color: var(--soft); text-decoration: none;
+      letter-spacing: .1em;
+      padding: .4rem .8rem; border-radius: 20px;
+      border: 1px solid transparent;
+      transition: all .2s;
+    }
+
+    nav a:hover {
+      color: var(--cyan); border-color: rgba(56,216,245,.4);
+      background: rgba(56,216,245,.08);
+      text-shadow: 0 0 10px var(--cyan);
+    }
+
+    /* ── Sections ── */
+    main { position: relative; z-index: 1; }
+
+    .character-section {
+      padding: 5rem 1.5rem;
+      border-bottom: 1px solid rgba(56,216,245,.1);
+    }
+
+    .character-section:nth-child(even) {
+      background: linear-gradient(180deg, transparent, rgba(10,20,50,.4), transparent);
+    }
+
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: .75rem; letter-spacing: .4em; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: .6rem; opacity: .8;
+    }
+
+    .section-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 20px rgba(56,216,245,.4));
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── Character intro card ── */
+    .intro-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 700px) {
+      .intro-card { grid-template-columns: 1fr; }
+    }
+
+    .intro-img-wrap {
+      position: relative;
+      border-radius: 20px; overflow: hidden;
+      border: 2px solid rgba(56,216,245,.3);
+      box-shadow: 0 0 40px rgba(0,200,255,.2), 0 0 80px rgba(0,200,255,.08);
+    }
+
+    .intro-img-wrap img {
+      width: 100%; display: block;
+      transition: transform .4s ease;
+    }
+
+    .intro-img-wrap:hover img { transform: scale(1.04); }
+
+    .intro-img-wrap::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(5,11,26,.7));
+      pointer-events: none;
+    }
+
+    .stat-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: .8rem 1.5rem;
+    }
+
+    .stat {
+      background: var(--card);
+      border: 1px solid rgba(56,216,245,.15);
+      border-radius: 12px; padding: .7rem 1rem;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .stat:hover {
+      border-color: rgba(56,216,245,.4);
+      box-shadow: 0 0 15px rgba(56,216,245,.1);
+    }
+
+    .stat-label {
+      font-size: .7rem; text-transform: uppercase;
+      letter-spacing: .15em; color: var(--cyan); opacity: .8;
+      margin-bottom: .2rem;
+    }
+
+    .stat-value { font-weight: 700; font-size: .95rem; color: var(--white); }
+
+    .stat.wide { grid-column: span 2; }
+
+    .powers-list {
+      display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .4rem;
+    }
+
+    .power-tag {
+      background: rgba(56,216,245,.12);
+      border: 1px solid rgba(56,216,245,.3);
+      border-radius: 20px; padding: .25rem .75rem;
+      font-size: .8rem; color: var(--cyan);
+      white-space: nowrap;
+    }
+
+    .story-box {
+      background: var(--card); border-radius: 16px;
+      border: 1px solid rgba(56,216,245,.15);
+      padding: 1.5rem 2rem; margin-top: 1.5rem;
+      line-height: 1.8; color: var(--soft); font-size: .95rem;
+      position: relative;
+    }
+
+    .story-box::before {
+      content: '✦';
+      position: absolute; top: -12px; left: 1.5rem;
+      background: var(--navy); padding: 0 .5rem;
+      color: var(--cyan); font-size: 1.2rem;
+    }
+
+    .flaw-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(123,94,167,.3), rgba(56,216,245,.15));
+      border: 1px solid rgba(123,94,167,.5);
+      border-radius: 12px; padding: .6rem 1rem;
+      margin-top: 1rem; font-size: .9rem;
+      color: #c8a8e8;
+    }
+
+    /* ── Forms gallery ── */
+    .forms-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.4rem; color: var(--cyan);
+      margin: 3rem 0 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+
+    .forms-title::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, rgba(56,216,245,.4), transparent);
+    }
+
+    .forms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .form-card {
+      background: var(--card);
+      border: 1px solid rgba(56,216,245,.15);
+      border-radius: 16px; overflow: hidden;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+      cursor: pointer;
+    }
+
+    .form-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(56,216,245,.5);
+      box-shadow: 0 10px 40px rgba(0,200,255,.2);
+    }
+
+    .form-card img {
+      width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;
+    }
+
+    .form-card-label {
+      padding: .6rem 1rem;
+      font-size: .8rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: var(--cyan); text-align: center;
+    }
+
+    /* ── Lightbox ── */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,.85); backdrop-filter: blur(8px);
+      align-items: center; justify-content: center;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox img {
+      max-width: 90vw; max-height: 90vh;
+      border-radius: 16px;
+      border: 2px solid rgba(56,216,245,.5);
+      box-shadow: 0 0 60px rgba(0,200,255,.3);
+    }
+
+    .lightbox-close {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      background: none; border: none; color: var(--white);
+      font-size: 2rem; cursor: pointer; opacity: .7;
+      transition: opacity .2s;
+    }
+
+    .lightbox-close:hover { opacity: 1; }
+
+    /* ── Footer ── */
+    footer {
+      position: relative; z-index: 1;
+      text-align: center; padding: 3rem 1rem;
+      border-top: 1px solid rgba(56,216,245,.1);
+      color: var(--soft); font-size: .85rem; opacity: .6;
+    }
+
+    footer span {
+      font-family: 'Cinzel Decorative', serif;
+      color: var(--cyan); opacity: 1;
+    }
+
+    /* ── Gem divider ── */
+    .gem-divider {
+      display: flex; align-items: center;
+      gap: 1rem; margin: 2rem 0;
+    }
+
+    .gem-divider::before, .gem-divider::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(56,216,245,.3), transparent);
+    }
+
+    .gem-icon {
+      width: 16px; height: 16px;
+      background: radial-gradient(circle at 35% 35%, #fff, var(--cyan) 60%, #1a4a8a);
+      clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+      filter: drop-shadow(0 0 6px var(--cyan));
+    }
+  </style>
+</head>
+<body>
+
+<div class="stars"></div>
+
+<!-- ── Hero ── -->
+<section class="hero" id="top">
+  <div class="hero-gem"></div>
+  <p class="hero-sparkle">✦ a world of elves &amp; magic ✦</p>
+  <h1>Magic Shadows</h1>
+  <p>Step into a realm where moonstone magic crackles through ancient elven forests and power runs deeper than anyone can explain.</p>
+  <div class="scroll-hint">scroll</div>
+</section>
+
+<!-- ── Nav ── -->
+<nav>
+  <a href="#moon">✦ Moon</a>
+</nav>
+
+<!-- ── Main ── -->
+<main>
+
+  <!-- ════ MOON ════ -->
+  <section class="character-section" id="moon">
+    <div class="section-inner">
+      <p class="section-label">Character 01</p>
+      <h2 class="section-title">Moon</h2>
+
+      <div class="intro-card">
+        <div class="intro-img-wrap">
+          <img src="images/image13.png" alt="Moon — Normal Form" />
+        </div>
+        <div>
+          <div class="stat-grid">
+            <div class="stat">
+              <div class="stat-label">Creature</div>
+              <div class="stat-value">Full Elf 🌙</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Age</div>
+              <div class="stat-value">16</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Gem</div>
+              <div class="stat-value">Moonstones 💎</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Elven Status</div>
+              <div class="stat-value">Daughter of the Queen 👑</div>
+            </div>
+            <div class="stat wide">
+              <div class="stat-label">Equipment</div>
+              <div class="stat-value">None — she was born with everything she needs ✨</div>
+            </div>
+            <div class="stat wide">
+              <div class="stat-label">Powers</div>
+              <div class="powers-list">
+                <span class="power-tag">✦ Teleportation</span>
+                <span class="power-tag">🌀 Realm Travel</span>
+                <span class="power-tag">🔮 Magic</span>
+                <span class="power-tag">🦊 Full Shapeshifting</span>
+                <span class="power-tag">⚡ Born Powers</span>
+              </div>
+            </div>
+            <div class="stat wide">
+              <div class="stat-label">Flaw</div>
+              <div class="stat-value" style="font-weight:400; font-size:.9rem; color: #c8a8e8;">
+                Can be fierce and very stubborn — but when she's excited? She is the most bubbly girl in the whole realm 🌸
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-box">
+        Moon was born to the queen of the elves, which already made her extraordinary — but even by royal standards, her power is something else entirely. Nobody knows why she has more magic than any regular elf, and honestly? She's not complaining. At thirteen, a half-elf betrayed the kingdom and it fell to Moon to stop them. She did. Now at sixteen she's still figuring out the full scope of what she can do. As a full elf she can shift into any animal form, but her favourite is always the fox 🦊 — the form even half-elves can take, and the one that feels most like <em>her</em>.
+      </div>
+
+      <div class="gem-divider"><div class="gem-icon"></div></div>
+
+      <!-- Battle Style -->
+      <div class="forms-title">⚔️ Battle Style</div>
+      <div class="forms-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="form-card" onclick="openLightbox('images/image14.png')">
+          <img src="images/image14.png" alt="Battle Style" />
+          <div class="form-card-label">Battle Ready</div>
+        </div>
+        <div class="form-card" onclick="openLightbox('images/image11.png')">
+          <img src="images/image11.png" alt="Using Magic" />
+          <div class="form-card-label">Using Magic</div>
+        </div>
+      </div>
+
+      <!-- Animal Forms -->
+      <div class="forms-title">🦊 Fox Form</div>
+      <div class="forms-grid">
+        <div class="form-card" onclick="openLightbox('images/image8.jpg')">
+          <img src="images/image8.jpg" alt="Fox Form" />
+          <div class="form-card-label">Fox Form</div>
+        </div>
+        <div class="form-card" onclick="openLightbox('images/image7.jpg')">
+          <img src="images/image7.jpg" alt="Fox Form Alt" />
+          <div class="form-card-label">Fox Form ✦</div>
+        </div>
+      </div>
+
+      <div class="forms-title">🐺 Wolf Form</div>
+      <div class="forms-grid">
+        <div class="form-card" onclick="openLightbox('images/image3.png')">
+          <img src="images/image3.png" alt="Wolf Form" />
+          <div class="form-card-label">Wolf Form</div>
+        </div>
+        <div class="form-card" onclick="openLightbox('images/image1.jpg')">
+          <img src="images/image1.jpg" alt="Wolf Form Alt" />
+          <div class="form-card-label">Wolf Form ✦</div>
+        </div>
+      </div>
+
+      <div class="forms-title">🐉 Special Form</div>
+      <div class="forms-grid">
+        <div class="form-card" onclick="openLightbox('images/image9.jpg')">
+          <img src="images/image9.jpg" alt="Special Form" />
+          <div class="form-card-label">Special Form</div>
+        </div>
+        <div class="form-card" onclick="openLightbox('images/image2.jpg')">
+          <img src="images/image2.jpg" alt="Special Form Alt" />
+          <div class="form-card-label">Special Form ✦</div>
+        </div>
+      </div>
+
+      <!-- Queen Form -->
+      <div class="forms-title">👑 Queen Form</div>
+      <div class="forms-grid">
+        <div class="form-card" onclick="openLightbox('images/image12.png')">
+          <img src="images/image12.png" alt="Queen Form" />
+          <div class="form-card-label">Queen Form</div>
+        </div>
+        <div class="form-card" onclick="openLightbox('images/image10.jpg')">
+          <img src="images/image10.jpg" alt="Queen Form Alt" />
+          <div class="form-card-label">Queen Form ✦</div>
+        </div>
+      </div>
+
+      <!-- Human Form -->
+      <div class="forms-title">🌙 Human Form</div>
+      <div class="forms-grid">
+        <div class="form-card" onclick="openLightbox('images/image5.png')">
+          <img src="images/image5.png" alt="Human Form" />
+          <div class="form-card-label">Human Form</div>
+        </div>
+        <div class="form-card" onclick="openLightbox('images/image6.png')">
+          <img src="images/image6.png" alt="Human Form Alt" />
+          <div class="form-card-label">Human Form ✦</div>
+        </div>
+      </div>
+
+      <!-- Five Years Old -->
+      <div class="forms-title">⚡ Five Years Old</div>
+      <div class="forms-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="form-card" onclick="openLightbox('images/image4.png')">
+          <img src="images/image4.png" alt="Moon aged 5" />
+          <div class="form-card-label">Little Moon</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ── Footer ── -->
+<footer>
+  <span>Magic Shadows</span> &nbsp;·&nbsp; a world of elves &amp; moonstone magic ✦
+</footer>
+
+<!-- ── Lightbox ── -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
