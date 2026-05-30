@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jade · Magic Shadows</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<div class="stars"></div>
+
+<nav>
+  <a href="index.html" class="nav-home">← Magic Shadows</a>
+  <a href="moon.html"   class="nav-link">Moon</a>
+  <a href="stella.html" class="nav-link">Stella</a>
+  <a href="lucky.html"  class="nav-link">Lucky</a>
+  <a href="autumn.html" class="nav-link">Autumn</a>
+  <a href="amber.html"  class="nav-link">Amber</a>
+  <a href="jade.html"   class="nav-link active">Jade</a>
+</nav>
+
+<main>
+  <character-card
+    index="06"
+    name="Jade"
+    creature="Half Elf"
+    age="16"
+    skill="Born with powers as a half elf — in tune with nature from birth"
+    powers="Earth Spells,Nature Magic"
+    equipment="Staff"
+    gem="Jade"
+    elven-status="Deeply connected to nature since birth — parents underestimated it until her powers emerged"
+    flaw="When under stress, gets angry, sad, and really distraught 🌿"
+    story="Jade has always had a way with the natural world. From the moment she was born she was in tune with it — animals, plants, the earth itself — in a way her parents noticed but didn't fully understand until her powers made themselves impossible to ignore. She's wise and kind, the type who listens before she speaks and always seems to know the right thing to say. She loves animals deeply and treats every living thing with care. But push her too far — pile on the pressure — and the calm cracks. Underneath the gentleness is a well of real emotion, and when it spills over, it spills hard. She's working on it. 🌿"
+    cover="images/jade/jade-normal.png"
+    accent="#4cbe8a"
+  >
+    <char-form section="⚔️ Battle Style"   label="Battle Style"    src="images/jade/jade-battle.png"></char-form>
+    <char-form section="🔮 Using Magic"    label="Using Magic"     src="images/jade/jade-magic.png"></char-form>
+    <char-form section="🦊 Fox Form"       label="Fox Form"        src="images/jade/jade-fox-1.png"></char-form>
+    <char-form section="🦊 Fox Form"       label="Fox Form ✦"      src="images/jade/jade-fox-2.png"></char-form>
+    <char-form section="🌟 Special Form"   label="Special Form"    src="images/jade/jade-special-1.png"></char-form>
+    <char-form section="🌟 Special Form"   label="Special Form ✦"  src="images/jade/jade-special-2.png"></char-form>
+    <char-form section="🐺 Wolf Form"      label="Wolf Form"       src="images/jade/jade-wolf.jpg"></char-form>
+    <char-form section="🌙 Human Form"     label="Human Form"      src="images/jade/jade-human.jpg"></char-form>
+  </character-card>
+</main>
+
+<footer>
+  <span>Magic Shadows</span> &nbsp;·&nbsp; a world of elves &amp; moonstone magic ✦
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
+<script src="js/character-card.js"></script>
+</body>
+</html>
