@@ -198,15 +198,35 @@ footer span { font-family: 'Cinzel Decorative', serif; color: #38d8f5; opacity: 
   color: var(--soft); max-width: 560px; line-height: 1.7; margin-bottom: 2.5rem;
 }
 .hero-gem {
-  width: 60px; height: 60px; margin-bottom: 1.5rem;
-  background: radial-gradient(circle at 35% 35%, #fff, #38d8f5 50%, #1a4a8a);
-  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-  filter: drop-shadow(0 0 20px #38d8f5);
-  animation: gemPulse 3s ease-in-out infinite;
+  width: 64px; height: 64px; margin-bottom: 1.5rem;
+  border-radius: 50%;
+  /* Crescent moon: the inset shadow "bites" a circle out of the disc */
+  background: transparent;
+  box-shadow:
+    inset -18px -3px 0 4px #38d8f5,        /* moon body */
+    inset -18px -3px 0 8px rgba(56,216,245,.25); /* soft inner halo */
+  transform: rotate(-35deg);
+  filter:
+    drop-shadow(0 0 12px rgba(56,216,245,.9))
+    drop-shadow(0 0 30px rgba(56,216,245,.5))
+    drop-shadow(0 0 60px rgba(56,216,245,.2));
+  animation: moonFloat 4s ease-in-out infinite;
 }
-@keyframes gemPulse {
-  0%,100% { filter: drop-shadow(0 0 20px #38d8f5); transform: scale(1); }
-  50%      { filter: drop-shadow(0 0 40px #00c8ff); transform: scale(1.08); }
+@keyframes moonFloat {
+  0%,100% {
+    transform: rotate(-35deg) translateY(0px);
+    filter:
+      drop-shadow(0 0 12px rgba(56,216,245,.9))
+      drop-shadow(0 0 30px rgba(56,216,245,.5))
+      drop-shadow(0 0 60px rgba(56,216,245,.2));
+  }
+  50% {
+    transform: rotate(-35deg) translateY(-8px);
+    filter:
+      drop-shadow(0 0 20px rgba(56,216,245,1))
+      drop-shadow(0 0 50px rgba(56,216,245,.7))
+      drop-shadow(0 0 90px rgba(56,216,245,.3));
+  }
 }
 .hero-coming-soon {
   display: flex; flex-direction: column; align-items: center; gap: .6rem;
