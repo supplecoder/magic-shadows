@@ -146,15 +146,6 @@ footer span { font-family: 'Cinzel Decorative', serif; color: #38d8f5; opacity: 
   position: relative;
 }
 
-/* decorative quote mark */
-.prologue-text::before {
-  content: '\201C';
-  position: absolute; top: -1.2rem; left: 2rem;
-  font-family: 'Cinzel Decorative', serif;
-  font-size: 4rem; line-height: 1;
-  color: #38d8f5; opacity: .25;
-  pointer-events: none;
-}
 
 .prologue-text p {
   color: var(--soft);
